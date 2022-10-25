@@ -1,5 +1,7 @@
 # Verisoul CRA Sample App
 
+![image](https://user-images.githubusercontent.com/31829159/197815885-b1430c93-b7ab-4707-a934-261b4e206300.png)
+
 ## Overview
 The purpose of this app is to demonstrate Verisoul's Javascript SDK by use of the private npm module. The repository contains a [create-react-app](https://create-react-app.dev/) project that uses Verisoul's NPM package `verisoul` alongside an [Express](https://expressjs.com/) API server.
 
