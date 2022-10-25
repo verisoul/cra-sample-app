@@ -20,7 +20,7 @@ cp .env.sample .env
 ```bash
 npm install
 ```
-5. Run the app at `http://localhost:4001`
+5. Run the app at `http://localhost:3000`
 ```bash
 npm start
 ```
