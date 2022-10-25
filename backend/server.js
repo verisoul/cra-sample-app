@@ -1,4 +1,4 @@
-require("dotenv").config({path: `.env.dev`});
+require("dotenv").config({path: `.env`});
 const {onePersonOneAccount} = require('./decision.js');
 const express = require('express');
 const fetch = require('node-fetch');
@@ -35,9 +35,9 @@ app.get("/api/session", async (req, res) => {
 
         let {sessionToken} = await response.json();
 
-        res.status(200).send({sessionToken})
+        res.status(200).send({sessionToken});
     } catch (err) {
-        res.status(500).send({error: err.message})
+        res.status(500).send({error: err.message});
     }
 });
 
@@ -53,8 +53,8 @@ app.get("/api/account/:accountId", async (req, res) => {
             throw new Error(`failed to get Verisoul account: ${response.status}`);
         }
 
+        // For more information on account metadata and attributes
         // See https://docs.verisoul.xyz/reference/api-reference/accounts
-        // for documentation of metadata and attributes
         let account = await response.json();
 
         if (decision(account)) {
@@ -93,12 +93,11 @@ app.get("/api/wallet-list", async (req, res) => {
 
         let results = await response.json();
 
-        // filter out accounts that are not enrolled
-        results = results.filter(account => account?.isEnrolled);
+        results = results.filter(account => account?.isEnrolled); // filter out accounts that are not enrolled
 
         res.status(200).send(results);
     } catch (err) {
-        res.status(500).send({error: err.message})
+        res.status(500).send({error: err.message});
     }
 });
 
@@ -133,11 +132,11 @@ app.get("/api/account/:accountId/toggle", async (req, res) => {
         let results = await toggle.json();
         res.status(200).send(results);
     } catch (err) {
-        res.status(500).send({error: err.message})
+        res.status(500).send({error: err.message});
     }
 });
 
-const PORT = process.env.SERVER_PORT || 5001;
+const PORT = 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
