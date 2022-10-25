@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Verisoul} from 'verisoul';
-import WalletList from './walletlist';
+import Accountlist from './accountlist';
 
 const App = () => {
     const [sessionToken, setSessionToken] = useState();
@@ -40,21 +40,22 @@ const App = () => {
         }
     }
 
-    if (showVerisoul && sessionToken) {
-        return (
-            <div className={'app vpopup'}>
-                <Verisoul session={sessionToken} onComplete={eventHandler} environment={"development"}/>
-            </div>
-        )
-    }
-
     return (
         <div>
-            <div className={'app'}>
-                <h1>Verisoul Sample Web App</h1>
-                <button onClick={initVerisoul}>Verify Wallet</button>
-                <WalletList/>
-            </div>
+            {showVerisoul && sessionToken
+                ? <div className={'app vpopup'}>
+                    <Verisoul
+                        session={sessionToken}
+                        onComplete={eventHandler}
+                        environment={process.env.REACT_APP_VERISOUL_ENV}/>
+                </div>
+                :
+                <div className={'app'}>
+                    <h1>Verisoul CRA Sample App</h1>
+                    <button onClick={initVerisoul}>Verify Wallet</button>
+                    <Accountlist/>
+                </div>
+            }
         </div>
     );
 }
