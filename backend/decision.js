@@ -11,7 +11,6 @@ Coming Soon -> Decision samples based on:
 function onePersonOneAccount(account) {
     return account.numAccounts === 0;
 }
-
 function unlimitedAccountsUnlessBlocked(account) {
     return account.hasBlockedAccounts === false;
 }

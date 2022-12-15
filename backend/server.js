@@ -10,7 +10,6 @@ app.use(express.json());
 
 const API_URL = `https://api.${process.env.REACT_APP_VERISOUL_ENV}.verisoul.xyz`;
 const headers = {
-    'project_id': process.env.VERISOUL_PROJECT_ID,
     'x-api-key': process.env.VERISOUL_API_KEY
 };
 
