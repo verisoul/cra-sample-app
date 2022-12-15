@@ -52,7 +52,7 @@ const App = () => {
                 :
                 <div className={'app'}>
                     <h1>Verisoul CRA Sample App</h1>
-                    <button onClick={initVerisoul}>Verify Wallet</button>
+                    <button onClick={initVerisoul}>Begin Verification</button>
                     <Accountlist/>
                 </div>
             }
